@@ -1,0 +1,164 @@
+```{r}
+library(keras)
+library(tensorflow)
+packageVersion("tensorflow")
+library(tfdatasets)
+library(abind)
+library(EBImage)
+library(progress)
+physical_gpus = tf$config$list_physical_devices('GPU')
+tf$config$set_logical_device_configuration(physical_gpus[[1]], list(tf$config$LogicalDeviceConfiguration(memory_limit=3966)))
+```
+
+Hyperparameterers
+```{r}
+# data
+VAE_dir = "../AutoEncoder/VAE-f8"
+checkpoint_dir = NULL
+DiT_dir = "../DiT/ema_DiT(Epoch 100)"
+token_vocabulary_dir = "../DiT/token_vocabulary.Rdata"
+image_size = 256L
+latent_size = image_size %/% 8L
+scale_factor = 0.23516
+
+# diffusion algorithmic
+diffusion_schedule = "cosine" # "linear" or "cosine"
+# linear schedule in the discrete model
+beta_start = 1e-4
+beta_end = 0.02
+# cosine schedule in the discrete and continuous model
+alphas_cumprod_start = 0.999
+alphas_cumprod_end = 0.001 # should be set relatively large to avoid extreme values during sampling.
+timesteps = 1000L
+noise_offset = 0.0
+use_ema = T
+
+# architecture, should be consistent with the loaded model
+patch_size = 2L
+embedding_dims = 256
+width = 1024
+num_layers = 16
+num_heads = 16
+mlp_ratio = 2.0
+out_channels = 4L
+dropout_rate = 0.1
+text_dropout = 0.2
+max_text_len = 16L
+
+mixed_precision = TRUE
+```
+
+```{r}
+if (mixed_precision){
+  tf$keras$mixed_precision$set_global_policy("mixed_float16")
+}
+
+# load VAE 
+VAE <- load_model_tf(VAE_dir)
+Encoder <- VAE$get_layer("encoder")
+Decoder <- VAE$get_layer("decoder")
+Encoder$trainable <- FALSE
+Decoder$trainable <- FALSE
+rm(VAE);gc()
+
+# load token vocabulary
+load(token_vocabulary_dir)
+num_tokens = length(token_vocabulary) + 2L # including "[null]" and "[UNK]"
+
+source("dataset.R")
+source("diffusion_model.R")
+
+if (!is.null(checkpoint_dir)){
+  source("architecture.R")
+  model <- DiffusionModel(DiT = get_DiT(),
+                          EMA_DiT = get_DiT(),
+                          Encoder = Encoder,
+                          Decoder = Decoder)
+  model$load_weights(checkpoint_dir)
+  model$UNET <- NULL; gc() 
+} else{
+  model <- DiffusionModel(DiT = NULL, 
+                          EMA_DiT = load_model_tf(DiT_dir),
+                          Encoder = Encoder,
+                          Decoder = Decoder)
+  gc() 
+}
+```
+
+
+```{r}
+model$generate(num_images = 1L,
+               diffusion_steps = 250,
+               eta = 1.0,
+               condition = "blonde hair, heterochromia, blush, long hair, blue eyes, hairband, red eyes, two side up",
+               CFG_scale = 7.0) %>% 
+  as.array() %>% 
+  {.[1,,,]} %>% 
+  EBImage::Image(colormode = "Color") %>% 
+  EBImage::transpose() %>% 
+  EBImage::normalize() %>% 
+  plot()
+```
+
+img2img
+```{r}
+img <- load_image()
+model$img2img(tf$expand_dims(img, 0L), 
+              diffusion_steps = 50,
+              denoising_strength = 0.7, 
+              eta = 0.0,
+              condition = "expressionless, blush, black hair",
+              CFG_scale = 4.0) %>% 
+  as.array() %>% 
+  {.[1,,,]} %>% 
+  EBImage::Image(colormode = "Color") %>% 
+  EBImage::transpose() %>% 
+  EBImage::normalize() %>% 
+  plot()
+```
+
+DDIM interpolation
+```{r}
+Spherical_interpolation = function(N){
+  x1 <- tf$random$normal(shape=c(1L, latent_size, latent_size, 4L))
+  x2 <- tf$random$normal(shape=c(1L, latent_size, latent_size, 4L))
+  
+  alpha <- tf$linspace(0.0, 1.0, as.integer(N))
+
+  slerp = function(x1,x2,alpha){
+    theta <- tf$acos(tf$reduce_sum(x1 * x2) / (tf$norm(x1) * tf$norm(x2)))
+    x_interp <- tf$sin((1.0 - alpha) * theta) / tf$sin(theta) * x1 + tf$sin(alpha * theta) / tf$sin(theta) * x2
+    return(x_interp)
+  }
+  
+  x <- list()
+  for(i in 1:length(alpha)){
+    x[[i]] <- slerp(x1, x2, alpha[i])
+  }
+  
+  for (initial_noise in x){
+    latents <- model$reverse_process(start_x = initial_noise,
+                                     start_t = 1000L, 
+                                     diffusion_steps = 20,
+                                     eta = 0.0, 
+                                     condition = "blue eyes, brown hair, blush, smile, long hair, collarbone, two side up",
+                                     CFG_scale = 3.0)
+    generated_images <- latents %>% 
+      model$to_images() %>% 
+      as.array() %>% 
+      {.[1,,,]} %>% 
+      EBImage::Image(colormode = "Color") %>% 
+      EBImage::transpose() %>% 
+      EBImage::normalize() %>% 
+      plot()
+  }
+}
+Spherical_interpolation(N = 10)
+```
+
+
+
+
+
+
+
