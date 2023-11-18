@@ -94,7 +94,6 @@ fang, red eyes, red hair, blush, open mouth, side ponytail, long hair, bare shou
 mole, mole under eye, school uniform, long hair, serafuku, green eyes, <br>blue hair, blush, sailor collar, star (symbol), :o
 </div>
 <br>
-<br>
 
 ## Discussion
 1. It's obvious that the tags of some images are wrong and couldn't describe the image completely.
