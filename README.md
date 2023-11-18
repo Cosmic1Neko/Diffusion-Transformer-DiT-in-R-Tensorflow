@@ -19,260 +19,81 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
 |:---:|:---:|:---:|
 | Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
 <div align="center">
-<span style="color:grey;">hat, brown hair, smile, brown eyes, short hair, bow, shirt, ribbon, closed mouth, <br>collared shirt, blush, white shirt</span>
+hat, brown hair, smile, brown eyes, short hair, bow, shirt, ribbon, closed mouth, <br>collared shirt, blush, white shirt
 </div>
 <br>
-
-<div style="display: table; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0018318.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0018318.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0018318.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
-</div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">hat, brown hair, smile, brown eyes, short hair, bow, shirt, ribbon, closed mouth, <br>collared shirt, blush, white shirt</div>
-</center>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0027454.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0027454.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0027454.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0027454.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0027454.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0027454.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+brown hair, long hair, mouth hold, school uniform, blush, ribbon, collared shirt, shirt, <br>white shirt, jacket, bangs, purple eyes, hair between eyes, brown eyes
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">brown hair, long hair, mouth hold, school uniform, blush, ribbon, collared shirt, shirt, <br>white shirt, jacket, bangs, purple eyes, hair between eyes, brown eyes</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0050625.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0050625.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0050625.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0050625.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0050625.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0050625.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+blue eyes, blush, tears, bare shoulders, collarbone, brown hair, short hair
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">blue eyes, blush, tears, bare shoulders, collarbone, brown hair, short hair</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0057424.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0057424.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0057424.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0057424.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0057424.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0057424.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+glasses, smile, hair over one eye, purple eyes, necktie, short hair, <br>blush, closed mouth, pink hair, purple hair
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">glasses, smile, hair over one eye, purple eyes, necktie, short hair, <br>blush, closed mouth, pink hair, purple hair</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0082591.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0082591.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0082591.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0082591.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0082591.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0082591.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+smile, grin, long hair, fang, blush, bare shoulders, brown hair, collarbone, animal ears
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">smile, grin, long hair, fang, blush, bare shoulders, brown hair, collarbone, animal ears</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0103294.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0103294.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0103294.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0103294.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0103294.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0103294.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+open mouth, long hair, tongue, wet, smile, fang, bangs, yellow eyes, blush, <br>tongue out, hair between eyes, collar, orange eyes
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">open mouth, long hair, tongue, wet, smile, fang, bangs, yellow eyes, blush, <br>tongue out, hair between eyes, collar, orange eyes</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0119282.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0119282.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0119282.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0119282.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0119282.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0119282.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+chibi, blue eyes, blush, :d, open mouth, smile, :3, fang, bangs, animal ears, <br>dress, bow, heart, long hair, hair between eyes
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">chibi, blue eyes, blush, :d, open mouth, smile, :3, fang, bangs, animal ears, <br>dress, bow, heart, long hair, hair between eyes</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0139669.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0139669.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0139669.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0139669.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0139669.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0139669.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+fang, red eyes, red hair, blush, open mouth, side ponytail, long hair, bare shoulders, collarbone
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">fang, red eyes, red hair, blush, open mouth, side ponytail, long hair, bare shoulders, collarbone</div>
-</center>
+<br>
 <br>
 
-<div style="display: flex; justify-content: space-between;">
-    <div>
-        <img src="./assets/train/0139940.jpg" width = '256px' height = '256px'>
-        <center>
-        <p>Real image</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddpm/0139940.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
-        </center>
-    </div>
-    <div>
-        <img src="./assets/ddim/0139940.png" width = '256px' height = '256px'>
-        <center>
-        <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
-        </center>
-    </div>
+| <img src="./assets/train/0139940.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0139940.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0139940.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+mole, mole under eye, school uniform, long hair, serafuku, green eyes, <br>blue hair, blush, sailor collar, star (symbol), :o
 </div>
-<center>
-<div style="color:orange; border-bottom: 1px solid #d9d9d9;
-    display: inline-block;
-    color: #999;
-    padding: 2px;">mole, mole under eye, school uniform, long hair, serafuku, green eyes, <br>blue hair, blush, sailor collar, star (symbol), :o</div>
-</center>
+<br>
 <br>
 
 ## Discussion
