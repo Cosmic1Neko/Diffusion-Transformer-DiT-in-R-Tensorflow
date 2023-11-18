@@ -15,6 +15,14 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
 
 
 **Examples: <br>**
+| <img src="./assets/train/0018318.jpg" width = '256px' height = '256px'> | <img src="./assets/ddpm/0018318.png" width = '256px' height = '256px'> |  <img src="./assets/ddim/0018318.png" width = '256px' height = '256px'> |
+|:---:|:---:|:---:|
+| Real image | step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM) | step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM) |
+<div align="center">
+<span style="color:grey;">hat, brown hair, smile, brown eyes, short hair, bow, shirt, ribbon, closed mouth, <br>collared shirt, blush, white shirt</span>
+</div>
+<br>
+
 <div style="display: table; justify-content: space-between;">
     <div>
         <img src="./assets/train/0018318.jpg" width = '256px' height = '256px'>
