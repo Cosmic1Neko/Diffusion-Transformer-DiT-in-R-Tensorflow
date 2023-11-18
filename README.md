@@ -23,13 +23,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0018318.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0018318.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0018318.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0018318.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -51,13 +51,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0027454.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0027454.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0027454.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0027454.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -79,13 +79,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0050625.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0050625.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0050625.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0050625.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -107,13 +107,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0057424.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0057424.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0057424.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0057424.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -135,13 +135,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0082591.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0082591.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0082591.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0082591.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -163,13 +163,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0103294.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0103294.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0103294.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0103294.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -191,13 +191,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0119282.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0119282.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0119282.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0119282.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -219,13 +219,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0139669.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0139669.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0139669.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0139669.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
@@ -247,13 +247,13 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
         </center>
     </div>
     <div>
-        <img src="./assets/ddpm/0139940.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddpm/0139940.png" width = '256px' height = '256px'>
         <center>
         <p>step = 250, σ<sub>t</sub> = 1.0, <br> CFG = 4.0 (DDPM)</p>
         </center>
     </div>
     <div>
-        <img src="./assets/ddim/0139940.png" idth = '256px' height = '256px'>
+        <img src="./assets/ddim/0139940.png" width = '256px' height = '256px'>
         <center>
         <p>step = 50, σ<sub>t</sub> = 0.0, <br> CFG = 4.0 (DDIM)</p>
         </center>
