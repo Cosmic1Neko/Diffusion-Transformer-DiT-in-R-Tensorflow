@@ -15,7 +15,7 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
 
 
 **Examples: <br>**
-<div margin: auto;">
+<div style="display: table; justify-content: space-between;">
     <div>
         <img src="./assets/train/0018318.jpg" width = '256px' height = '256px'>
         <center>
