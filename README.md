@@ -4,7 +4,7 @@ This repository is a R-Tensorflow implementation of [Diffusion Transformer](http
 ## Detail
 1. AutoEncoder is KL-VAE with the KL regularized loss and VGG19-based perceptual loss. VAE is used to compress images from pixel space to latent space. After the Encoder in VAE, the image resolution will be reduced by a factor of 8 (256x256 -> 32x32).
 2. DiT consists of a series of DiT blocks with 260M parameters (width = 1024, num_heads = 16, num_layers = 16). The tags of images will be encoded by the 2 layers of Transformer encoder to get the "condition vector" (like  *\<cls\>* token in BERT or ViT).
-3. This model is a **conditional** generative model (Classifier-Free Guidance, CFG). It can generate images conditionally given specific tags such as `blue hair, short hair, blush, smile` (better quality), or generate images unconditionally (lower quality).
+3. This model is a **conditional** generative model (Classifier-Free Guidance, CFG). It can generate images conditionally given specific tags such as `blue hair, short hair, blush, smile` (better quality), or generate images unconditionally (lower quality). It also supports "**negative prompt**" to avoid things you don't want.
 4. Regarding the sampler, I only implemented DDIM.
 <div align="left">
   <img src="./assets/DDIM.png" width = '709px' height = '405px'>
@@ -119,7 +119,7 @@ The required R packages listed as follows:
     ```
     Rscript scale_factor.R
     ```
-4. Change the hyperparameters and train U-Net.
+4. Change the hyperparameters and train DiT.
     ```
     Rscript train_DiT.R
     ```
