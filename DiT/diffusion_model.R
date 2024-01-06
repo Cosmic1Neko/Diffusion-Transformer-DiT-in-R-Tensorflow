@@ -133,16 +133,31 @@ DiffusionModel <- new_model_class(
                              start_t = timesteps, # used for img2img
                              diffusion_steps,
                              eta = 0.0,
-                             condition,
+                             prompt,
+                             negative_prompt = NULL,
                              CFG_scale = 4.0){
     # reverse diffusion = sampling 
     num_images <- start_x$shape[[1]]
     diffusion_steps <- as.integer(diffusion_steps)
-    null_condition <- tf$concat(list(
-      tf$constant(2L, shape = c(num_images, 1L), dtype = "int32"),
-      tf$constant(0L, shape = c(num_images, max_text_len), dtype = "int32")
-    ), axis = 1L)
-    condition <- tf$constant(condition, shape = c(num_images), dtype = "string") %>% self$text2index(training = FALSE)
+    
+    # unconditional
+    if (is.null(negative_prompt)){
+      null_condition <- tf$concat(list(
+        tf$constant(2L, shape = c(num_images, 1L), dtype = "int32"),
+        tf$constant(0L, shape = c(num_images, max_text_len), dtype = "int32")
+      ), axis = 1L)
+    } else{
+      null_condition <- tf$constant(negative_prompt, shape = c(num_images), dtype = "string") %>% self$text2index(training = FALSE)
+    }
+    # conditional
+    if (is.null(prompt)){
+      condition <- tf$concat(list(
+        tf$constant(2L, shape = c(num_images, 1L), dtype = "int32"),
+        tf$constant(0L, shape = c(num_images, max_text_len), dtype = "int32")
+      ), axis = 1L)
+    } else{
+      condition <- tf$constant(prompt, shape = c(num_images), dtype = "string") %>% self$text2index(training = FALSE)
+    }
     
     t_seq <- tf$linspace(start_t - 1L, 0L, diffusion_steps) %>% 
       as.integer()
@@ -167,13 +182,13 @@ DiffusionModel <- new_model_class(
       
       # predict one component of the noisy images with the network
       if (use_ema){
-        pred_noises_null <- self$EMA_DiT(list(x, diffusion_times, null_condition), training = FALSE)
+        pred_noises_uncond <- self$EMA_DiT(list(x, diffusion_times, null_condition), training = FALSE)
         pred_noises_cond <- self$EMA_DiT(list(x, diffusion_times, condition), training = FALSE)
-        pred_noises = pred_noises_null + CFG_scale * (pred_noises_cond - pred_noises_null)
+        pred_noises = pred_noises_uncond + CFG_scale * (pred_noises_cond - pred_noises_uncond)
       } else{
-        pred_noises_null <- self$DiT(list(x, diffusion_times, null_condition), training = FALSE)
+        pred_noises_uncond <- self$DiT(list(x, diffusion_times, null_condition), training = FALSE)
         pred_noises_cond <- self$DiT(list(x, diffusion_times, condition), training = FALSE)
-        pred_noises = pred_noises_null + CFG_scale * (pred_noises_cond - pred_noises_null)
+        pred_noises = pred_noises_uncond + CFG_scale * (pred_noises_cond - pred_noises_uncond)
       }
       
       # get alpha_cumprod and alpha_cumprod_prev
@@ -207,7 +222,8 @@ DiffusionModel <- new_model_class(
   generate = function(num_images,
                       diffusion_steps = 20,
                       eta = 0.0,
-                      condition,
+                      prompt,
+                      negative_prompt = NULL,
                       CFG_scale = 4.0){
     # noise -> latent images -> pixel images
     num_images <- as.integer(num_images)
@@ -216,7 +232,8 @@ DiffusionModel <- new_model_class(
                                     start_t = timesteps, 
                                     diffusion_steps = diffusion_steps,
                                     eta = eta,
-                                    condition = condition,
+                                    prompt = prompt,
+                                    negative_prompt = negative_prompt,
                                     CFG_scale = CFG_scale)
     generated_images <- self$to_images(latents)
     return(generated_images)
@@ -226,7 +243,8 @@ DiffusionModel <- new_model_class(
                      diffusion_steps = 20,
                      denoising_strength = 0.5,
                      eta = 0.0,
-                     condition,
+                     prompt,
+                     negative_prompt = NULL,
                      CFG_scale = 4.0){
     num_images <- tf$shape(images)[1]
     latents <- self$to_latents(images)
@@ -244,7 +262,8 @@ DiffusionModel <- new_model_class(
                                     start_t = start_t + 1, # [0,999] -> [1,1000]
                                     diffusion_steps = diffusion_steps,
                                     eta = eta,
-                                    condition = condition,
+                                    prompt = prompt,
+                                    negative_prompt = negative_prompt,
                                     CFG_scale = CFG_scale)
     
     generated_images <- self$to_images(latents)
