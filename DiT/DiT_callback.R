@@ -13,7 +13,7 @@ gan_monitor <- new_callback_class(
       # conditional generate images
       generated_images <- model$generate(num_images = 25L, 
                                          diffusion_steps = self$plot_diffusion_steps,
-                                         condition = "black hair, long hair, smile, blush, bare shoulders, bangs")
+                                         prompt = "black hair, long hair, smile, blush, bare shoulders, bangs")
       generated_images <- as.array(generated_images)
       png(paste0("gen_images(DiT)/gen_image_cond(Epoch ",epoch + 1, ").png"))
       par(mfrow=c(5,5))
