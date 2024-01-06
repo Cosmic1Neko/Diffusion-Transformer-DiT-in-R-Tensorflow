@@ -90,7 +90,8 @@ if (!is.null(checkpoint_dir)){
 model$generate(num_images = 1L,
                diffusion_steps = 250,
                eta = 1.0,
-               condition = "blonde hair, heterochromia, blush, long hair, blue eyes, hairband, red eyes, two side up",
+               prompt = "expressionless, blush, black hair",
+               negative_prompt = "chibi",
                CFG_scale = 7.0) %>% 
   as.array() %>% 
   {.[1,,,]} %>% 
@@ -107,7 +108,8 @@ model$img2img(tf$expand_dims(img, 0L),
               diffusion_steps = 50,
               denoising_strength = 0.7, 
               eta = 0.0,
-              condition = "expressionless, blush, black hair",
+              prompt = "expressionless, blush, black hair",
+              negative_prompt = "chibi",
               CFG_scale = 4.0) %>% 
   as.array() %>% 
   {.[1,,,]} %>% 
@@ -141,7 +143,8 @@ Spherical_interpolation = function(N){
                                      start_t = 1000L, 
                                      diffusion_steps = 20,
                                      eta = 0.0, 
-                                     condition = "blue eyes, brown hair, blush, smile, long hair, collarbone, two side up",
+                                     prompt = "expressionless, blush, black hair",
+                                     negative_prompt = "chibi",
                                      CFG_scale = 3.0)
     generated_images <- latents %>% 
       model$to_images() %>% 
